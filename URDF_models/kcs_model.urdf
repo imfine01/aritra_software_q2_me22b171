@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot name="kcs_model">
+
+  <material name="white">
+  	<color rgba="1.0 1.0 1.0 1" />
+  </material>
+
+  <material name="green">
+  	<color rgba="0.0 1.0 0.0 1" />
+  </material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="7.2786 1.0190 0.6013 " />
+      </geometry>
+	  <origin xyz="0 0 0.30065" rpy="0 0 0" />
+    </visual>
+  </link>
+
+  <link name="extension">
+    <visual>
+      <geometry>
+        <box size="0.7279 1.0190 .06013" />
+      </geometry>
+	  <origin xyz="0 0 0" rpy="0 0 0" />
+    </visual>
+  </link>
+
+  <link name="propeller">
+    <visual>
+      <geometry>
+        <cylinder radius="0.05" length="0.25" />
+      </geometry>
+	  <origin xyz="0 0 0" rpy="0 0 0" />
+	  <material name="white" />
+    </visual>
+  </link>
+
+  <link name="rudder">
+    <visual>
+      <geometry>
+        <box size=".35 .1 .7" />
+      </geometry>
+	  <origin xyz=".175 0 -0.35" rpy="0 0 0" />
+	  <material name="green" />
+    </visual>
+  </link>
+
+  <joint name="base_extension" type="fixed">
+	<parent link="base_link" />
+	<child link="extension" />
+	<origin xyz="-4.0033 0 .57065" rpy="0 0 0" />
+  </joint>
+
+  <joint name="base_propeller" type="continuous">
+	<parent link="base_link" />
+	<child link="propeller" />
+	<origin xyz="-3.6643 0 0" rpy="0 0 0" />
+	<axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name="base_rudder" type="revolute">
+	<parent link="base_link" />
+	<child link="rudder" />
+	<origin xyz="-4.3672 0 0.54117" rpy="0 0 0" />
+	<axis xyz="0 0 1"/>
+	<limit lower=".61087" upper="-.61087" effort="0" velocity=".43633"/>
+  </joint>
+
+</robot>
