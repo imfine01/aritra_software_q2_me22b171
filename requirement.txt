@@ -1,0 +1,9 @@
+#For ROS2 Control Setup:
+  Install the following packages
+  1. sudo apt-get install ros-humble-teleop-twist-keyboard
+
+# For Integration with RVIZ2:
+  Install the following packages
+  1. sudo apt install ros-humble-xacro
+  2. sudo apt install ros-humble-joint-state-publisher-gui
+  3. sudo apt install ros-humble-urdf-tutorial
